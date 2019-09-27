@@ -29,6 +29,9 @@ public class FrmControlCombustible extends javax.swing.JFrame {
         controlCombustible = new ArrayList();
         c = Calendar.getInstance();
         i = controlCombustible.size() + 1;
+        txtCantGalones.setText("");
+        txtTotalPagado.setText("");
+        btnModificar.setEnabled(false);
         mostrarTabla();
     }
 
@@ -59,7 +62,11 @@ public class FrmControlCombustible extends javax.swing.JFrame {
 
         jLabel2.setText("Cant Galones");
 
+        txtTotalPagado.setText("txtTotalPagado");
+
         jLabel3.setText("Total pagado");
+
+        txtCantGalones.setText("txtCantGalones");
 
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -173,6 +180,8 @@ public class FrmControlCombustible extends javax.swing.JFrame {
         idMod = dato;
         txtCantGalones.setText(Double.toString(controlCombustible.get(idMod).getCantCombustible()));
         txtTotalPagado.setText(Integer.toString(controlCombustible.get(idMod).getValorTanqueo()));
+        btnGuardar.setEnabled(false);
+        btnModificar.setEnabled(true);
     }
 
     public void modificar() {
@@ -181,6 +190,8 @@ public class FrmControlCombustible extends javax.swing.JFrame {
         txtCantGalones.setText("");
         txtTotalPagado.setText("");
         mostrarTabla();
+        btnGuardar.setEnabled(true);
+        btnModificar.setEnabled(false);
         JOptionPane.showMessageDialog(null, "Dato modificado con exito", "Control Combustible", JOptionPane.INFORMATION_MESSAGE);
     }
 
